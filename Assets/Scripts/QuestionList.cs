@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataManager : MonoBehaviour
+public class QuestionList : MonoBehaviour
 {
     [SerializeField] private TextAsset dataFile;
+    [SerializeField] private GameObject questionObjPrefab;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class DataManager : MonoBehaviour
                 Debug.Log($"    {data.questions[i].answers[j].image_url}");
                 Debug.Log($"    {data.questions[i].answers[j].should_show_profile_image}");
             }
+            Instantiate(this.questionObjPrefab, this.transform);
         }
     }
 }
