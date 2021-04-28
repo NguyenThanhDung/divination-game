@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataFile: {fileID: 4900000, guid: f9547a57d9323ff469da49207d70caae, type: 3}
-  questionObjPrefab: {fileID: 6592958598111726972, guid: 12d917e32a20e50498261867e599d67d, type: 3}
+  questionButtonPrefab: {fileID: 1892529972178655192, guid: 12d917e32a20e50498261867e599d67d, type: 3}
 --- !u!1 &1406464485
 GameObject:
   m_ObjectHideFlags: 0
