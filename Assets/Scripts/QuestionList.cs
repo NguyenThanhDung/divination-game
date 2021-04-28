@@ -31,6 +31,11 @@ public class QuestionList : MonoBehaviour
         }
     }
 
+    public void Show()
+    {
+        this.display.SetActive(true);
+    }
+
     public void OnClickQuestion()
     {
         this.display.SetActive(false);
