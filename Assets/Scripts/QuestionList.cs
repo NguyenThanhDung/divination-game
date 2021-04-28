@@ -5,6 +5,7 @@ using UnityEngine;
 public class QuestionList : MonoBehaviour
 {
     [SerializeField] private TextAsset dataFile;
+    [SerializeField] private GameObject display;
     [SerializeField] private QuestionButton questionButtonPrefab;
     [SerializeField] private AnswerPanel answerPanel;
 
@@ -24,7 +25,7 @@ public class QuestionList : MonoBehaviour
                 Debug.Log($"    {data.questions[i].answers[j].image_url}");
                 Debug.Log($"    {data.questions[i].answers[j].should_show_profile_image}");
             }
-            QuestionButton questionButton = Instantiate<QuestionButton>(this.questionButtonPrefab, this.transform);
+            QuestionButton questionButton = Instantiate<QuestionButton>(this.questionButtonPrefab, this.display.transform);
             questionButton.text.text = data.questions[i].text;
             questionButton.questionList = this;
         }
@@ -32,6 +33,7 @@ public class QuestionList : MonoBehaviour
 
     public void OnClickQuestion()
     {
+        this.display.SetActive(false);
         this.answerPanel.ShowAnswer();
     }
 }
