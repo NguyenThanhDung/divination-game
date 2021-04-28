@@ -6,6 +6,7 @@ public class QuestionList : MonoBehaviour
 {
     [SerializeField] private TextAsset dataFile;
     [SerializeField] private QuestionButton questionButtonPrefab;
+    [SerializeField] private AnswerPanel answerPanel;
 
     void Start()
     {
@@ -25,6 +26,12 @@ public class QuestionList : MonoBehaviour
             }
             QuestionButton questionButton = Instantiate<QuestionButton>(this.questionButtonPrefab, this.transform);
             questionButton.text.text = data.questions[i].text;
+            questionButton.questionList = this;
         }
+    }
+
+    public void OnClickQuestion()
+    {
+        this.answerPanel.ShowAnswer();
     }
 }

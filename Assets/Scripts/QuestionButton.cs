@@ -6,4 +6,10 @@ using UnityEngine.UI;
 public class QuestionButton : MonoBehaviour
 {
     public Text text;
+    public QuestionList questionList;
+
+    public void OnClick()
+    {
+        this.questionList.OnClickQuestion();
+    }
 }
