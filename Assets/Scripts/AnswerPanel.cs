@@ -11,7 +11,12 @@ public class AnswerPanel : MonoBehaviour
 
     public void ShowAnswer(Question question)
     {
-        this.text.text = "This is the answer of question:\n" + question.text;
+        string content = "Question: " + question.text + "\nAnswers:\n";
+        foreach (Answer answer in question.answers)
+        {
+            content += "  * " + answer.text + "\n";
+        }
+        this.text.text = content;
         this.display.SetActive(true);
     }
 
