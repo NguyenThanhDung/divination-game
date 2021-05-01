@@ -11,11 +11,11 @@ public class AnswerPanel : MonoBehaviour
 
     public void ShowAnswer(Question question)
     {
-        string content = "Question: " + question.text + "\nAnswers:\n";
-        foreach (Answer answer in question.answers)
-        {
-            content += "  * " + answer.text + "\n";
-        }
+        string content = "Question: " + question.text + "\n";
+
+        int answerIndex = Random.Range(0, question.answers.Length);
+        content += "Answer: " + question.answers[answerIndex].text;
+
         this.text.text = content;
         this.display.SetActive(true);
     }
