@@ -17,7 +17,7 @@ public class QuestionList : MonoBehaviour
         Data data = JsonUtility.FromJson<Data>(dataFile.text);
         for (int i = 0; i < data.questions.Length; i++)
         {
-            Debug.Log("Question "+ i +": "+ data.questions[i].text);
+            Debug.Log($"Question {data.questions[i].ID}: "+ data.questions[i].text);
             for (int j = 0; j < data.questions[i].answers.Length; j++)
             {
                 Debug.Log($"  Answer {j}:");
