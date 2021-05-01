@@ -11,7 +11,7 @@ public class AnswerPanel : MonoBehaviour
 
     public void ShowAnswer(Question question)
     {
-        this.text.text = "This is the answer of question ID " + question.ID;
+        this.text.text = "This is the answer of question:\n" + question.text;
         this.display.SetActive(true);
     }
 
