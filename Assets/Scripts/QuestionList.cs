@@ -26,6 +26,7 @@ public class QuestionList : MonoBehaviour
                 Debug.Log($"    {data.questions[i].answers[j].should_show_profile_image}");
             }
             QuestionButton questionButton = Instantiate<QuestionButton>(this.questionButtonPrefab, this.display.transform);
+            questionButton.question = data.questions[i];
             questionButton.text.text = data.questions[i].text;
             questionButton.questionList = this;
         }
@@ -36,9 +37,9 @@ public class QuestionList : MonoBehaviour
         this.display.SetActive(true);
     }
 
-    public void OnClickQuestion()
+    public void OnClickQuestion(Question question)
     {
         this.display.SetActive(false);
-        this.answerPanel.ShowAnswer();
+        this.answerPanel.ShowAnswer(question);
     }
 }

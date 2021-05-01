@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnswerPanel : MonoBehaviour
 {
     [SerializeField] private GameObject display;
+    [SerializeField] private Text text;
     [SerializeField] private QuestionList questionList;
 
-    public void ShowAnswer()
+    public void ShowAnswer(Question question)
     {
+        this.text.text = "This is the answer of question ID " + question.ID;
         this.display.SetActive(true);
     }
 
