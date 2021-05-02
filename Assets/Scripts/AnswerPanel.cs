@@ -13,12 +13,12 @@ public class AnswerPanel : MonoBehaviour
     {
         string content = "Question: " + question.text + "\n";
 
-        int answerIndex = Random.Range(0, question.answers.Length);
-        content += "Answer: " + question.answers[answerIndex].text;
+        int answerIndex = Random.Range(0, question.possibleAnswers.Length);
+        content += "Answer: " + question.possibleAnswers[answerIndex].text;
 
         this.text.text = content;
 
-        this.questionList.SetAnswer(question.ID, question.answers[answerIndex].ID);
+        question.playedAnswer = question.possibleAnswers[answerIndex];
 
         this.display.SetActive(true);
     }
