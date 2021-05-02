@@ -17,6 +17,9 @@ public class AnswerPanel : MonoBehaviour
         content += "Answer: " + question.answers[answerIndex].text;
 
         this.text.text = content;
+
+        this.questionList.SetAnswer(question.ID, question.answers[answerIndex].ID);
+
         this.display.SetActive(true);
     }
 
