@@ -11,15 +11,18 @@ public class AnswerPanel : MonoBehaviour
 
     public void ShowAnswer(Question question)
     {
-        string content = "Question: " + question.text + "\n";
-
-        int answerIndex = Random.Range(0, question.possibleAnswers.Length);
-        content += "Answer: " + question.possibleAnswers[answerIndex].text;
-
+        string content = "Question: " + question.text + "\nAnswer: ";
+        if (question.playedAnswer.text != null)
+        {
+            content += question.playedAnswer.text;
+        }
+        else
+        {
+            int answerIndex = Random.Range(0, question.possibleAnswers.Length);
+            content += question.possibleAnswers[answerIndex].text;
+            question.playedAnswer = question.possibleAnswers[answerIndex];
+        }
         this.text.text = content;
-
-        question.playedAnswer = question.possibleAnswers[answerIndex];
-
         this.display.SetActive(true);
     }
 
