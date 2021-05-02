@@ -6,6 +6,7 @@ using UnityEngine;
 public class Question
 {
     public string text;
+    public string image;
     public Answer[] possibleAnswers;
     public Answer playedAnswer;
 }

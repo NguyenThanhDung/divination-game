@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionList : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class QuestionList : MonoBehaviour
             this.questionButtons[i].question = this.data.questions[i];
             this.questionButtons[i].text.text = this.data.questions[i].text;
             this.questionButtons[i].questionList = this;
+
+            var sprite = Resources.Load<Sprite>(this.data.questions[i].image);
+            var image = this.questionButtons[i].GetComponent<Image>();
+            image.sprite = sprite;
         }
     }
 

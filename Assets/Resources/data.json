@@ -2,6 +2,7 @@
     "questions": [
         {
             "text": "Question 1",
+            "image": "Images/feudalism-41161",
             "possibleAnswers": [
                 {
                     "text": "Answer 1.1",
@@ -22,6 +23,7 @@
         },
         {
             "text": "Question 2",
+            "image": "Images/maxresdefault",
             "possibleAnswers": [
                 {
                     "text": "Answer 2.1",
@@ -42,6 +44,7 @@
         },
         {
             "text": "Question 3",
+            "image": "Images/mw5-game-screenshot-02",
             "possibleAnswers": [
                 {
                     "text": "Answer 3.1",
