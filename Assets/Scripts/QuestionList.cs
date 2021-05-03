@@ -27,7 +27,7 @@ public class QuestionList : MonoBehaviour
             {
                 Debug.Log($"  Answer {j}:");
                 Debug.Log($"    {this.data.questions[i].possibleAnswers[j].text}");
-                Debug.Log($"    {this.data.questions[i].possibleAnswers[j].image_url}");
+                Debug.Log($"    {this.data.questions[i].possibleAnswers[j].image}");
                 Debug.Log($"    {this.data.questions[i].possibleAnswers[j].should_show_profile_image}");
             }
             this.questionButtons[i] = Instantiate<QuestionButton>(this.questionButtonPrefab, this.display.transform);

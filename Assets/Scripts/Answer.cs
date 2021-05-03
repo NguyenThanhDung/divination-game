@@ -6,6 +6,6 @@ using UnityEngine;
 public class Answer
 {
     public string text;
-    public string image_url;
+    public string image;
     public bool should_show_profile_image;
 }
