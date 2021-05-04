@@ -1616,6 +1616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 1418068781}
   text: {fileID: 368524239}
+  image: {fileID: 738672451}
   questionList: {fileID: 1335907481}
 --- !u!1 &2085151982
 GameObject:

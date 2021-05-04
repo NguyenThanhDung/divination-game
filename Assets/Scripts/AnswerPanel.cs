@@ -7,22 +7,24 @@ public class AnswerPanel : MonoBehaviour
 {
     [SerializeField] private GameObject display;
     [SerializeField] private Text text;
+    [SerializeField] private Image image;
     [SerializeField] private QuestionList questionList;
 
     public void ShowAnswer(Question question)
     {
-        string content = "Question: " + question.text + "\nAnswer: ";
+        this.text.text = "Question: " + question.text + "\nAnswer: ";
         if (question.playedAnswer.text != null)
         {
-            content += question.playedAnswer.text;
+            this.text.text += question.playedAnswer.text;
+            this.image.sprite = Resources.Load<Sprite>(question.playedAnswer.image);
         }
         else
         {
             int answerIndex = Random.Range(0, question.possibleAnswers.Length);
-            content += question.possibleAnswers[answerIndex].text;
+            this.text.text += question.possibleAnswers[answerIndex].text;
+            this.image.sprite = Resources.Load<Sprite>(question.possibleAnswers[answerIndex].image);
             question.playedAnswer = question.possibleAnswers[answerIndex];
         }
-        this.text.text = content;
         this.display.SetActive(true);
     }
 
