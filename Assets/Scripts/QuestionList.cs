@@ -54,7 +54,7 @@ public class QuestionList : MonoBehaviour
     public void OnClickQuestion(Question question)
     {
         if (this.answerPanel != null)
-            Destroy(this.answerPanel);
+            Destroy(this.answerPanel.gameObject);
         this.answerPanel = Instantiate<AnswerPanel>(this.answerPanelPrefab, this.display.transform);
         this.answerPanel.transform.SetSiblingIndex(0);
         this.answerPanel.ShowAnswer(question);
