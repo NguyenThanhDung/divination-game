@@ -8,10 +8,11 @@ public class QuestionList : MonoBehaviour
     [SerializeField] private TextAsset dataFile;
     [SerializeField] private GameObject display;
     [SerializeField] private QuestionButton questionButtonPrefab;
-    [SerializeField] private AnswerPanel answerPanel;
+    [SerializeField] private AnswerPanel answerPanelPrefab;
 
     private Data data;
     private QuestionButton[] questionButtons;
+    private AnswerPanel answerPanel;
 
     void Start()
     {
@@ -52,7 +53,10 @@ public class QuestionList : MonoBehaviour
 
     public void OnClickQuestion(Question question)
     {
-        this.display.SetActive(false);
+        if (this.answerPanel != null)
+            Destroy(this.answerPanel);
+        this.answerPanel = Instantiate<AnswerPanel>(this.answerPanelPrefab, this.display.transform);
+        this.answerPanel.transform.SetSiblingIndex(0);
         this.answerPanel.ShowAnswer(question);
     }
 }
