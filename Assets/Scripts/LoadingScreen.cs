@@ -8,9 +8,12 @@ public class LoadingScreen : MonoBehaviour
     [SerializeField] private GameObject display;
     [SerializeField] private Text text;
 
+    private string originalText = "The result will sock you";
+
     public void Show()
     {
         StartCoroutine(ShowInSeconds(3f));
+        StartCoroutine(UpdateText());
     }
 
     private IEnumerator ShowInSeconds(float time)
@@ -18,5 +21,16 @@ public class LoadingScreen : MonoBehaviour
         this.display.SetActive(true);
         yield return new WaitForSeconds(time);
         this.display.SetActive(false);
+    }
+
+    private IEnumerator UpdateText()
+    {
+        for(int i = 0; i <= this.originalText.Length; i++)
+        {
+            this.text.text = this.originalText.Substring(0, i) + "...";
+            yield return new WaitForSeconds(0.1f);
+            if (this.display.active == false)
+                break;
+        }
     }
 }
