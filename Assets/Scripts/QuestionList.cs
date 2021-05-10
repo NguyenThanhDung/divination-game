@@ -7,6 +7,7 @@ public class QuestionList : MonoBehaviour
 {
     [SerializeField] private TextAsset dataFile;
     [SerializeField] private GameObject display;
+    [SerializeField] private Scrollbar verticalScrollbar;
     [SerializeField] private QuestionButton questionButtonPrefab;
     [SerializeField] private AnswerPanel answerPanelPrefab;
 
@@ -58,5 +59,7 @@ public class QuestionList : MonoBehaviour
         this.answerPanel = Instantiate<AnswerPanel>(this.answerPanelPrefab, this.display.transform);
         this.answerPanel.transform.SetSiblingIndex(0);
         this.answerPanel.ShowAnswer(question);
+
+        this.verticalScrollbar.value = 1f;
     }
 }
