@@ -10,6 +10,7 @@ public class QuestionList : MonoBehaviour
     [SerializeField] private Scrollbar verticalScrollbar;
     [SerializeField] private QuestionButton questionButtonPrefab;
     [SerializeField] private AnswerPanel answerPanelPrefab;
+    [SerializeField] private LoadingScreen loadingScreen;
 
     private Data data;
     private QuestionButton[] questionButtons;
@@ -54,6 +55,8 @@ public class QuestionList : MonoBehaviour
 
     public void OnClickQuestion(Question question)
     {
+        this.loadingScreen.Show();
+
         if (this.answerPanel != null)
             Destroy(this.answerPanel.gameObject);
         this.answerPanel = Instantiate<AnswerPanel>(this.answerPanelPrefab, this.display.transform);
