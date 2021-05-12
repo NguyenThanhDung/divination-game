@@ -63,6 +63,33 @@ public class QuestionList : MonoBehaviour
         this.answerPanel.transform.SetSiblingIndex(0);
         this.answerPanel.ShowAnswer(question);
 
+        for (int i = 0; i < this.questionButtons.Length; i++)
+        {
+            Destroy(this.questionButtons[i].gameObject);
+        }
+        for (int i = 0; i < this.data.questions.Length; i++)
+        {
+            if (this.data.questions[i].playedAnswer.text == null)
+            {
+                this.questionButtons[i] = Instantiate<QuestionButton>(this.questionButtonPrefab, this.display.transform);
+                this.questionButtons[i].question = this.data.questions[i];
+                this.questionButtons[i].text.text = this.data.questions[i].text;
+                this.questionButtons[i].image.sprite = Resources.Load<Sprite>(this.data.questions[i].image);
+                this.questionButtons[i].questionList = this;
+            }
+        }
+        for (int i = 0; i < this.data.questions.Length; i++)
+        {
+            if (this.data.questions[i].playedAnswer.text != null)
+            {
+                this.questionButtons[i] = Instantiate<QuestionButton>(this.questionButtonPrefab, this.display.transform);
+                this.questionButtons[i].question = this.data.questions[i];
+                this.questionButtons[i].text.text = this.data.questions[i].text;
+                this.questionButtons[i].image.sprite = Resources.Load<Sprite>(this.data.questions[i].image);
+                this.questionButtons[i].questionList = this;
+            }
+        }
+
         this.verticalScrollbar.value = 1f;
     }
 }
