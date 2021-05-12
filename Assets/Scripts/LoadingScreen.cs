@@ -12,7 +12,7 @@ public class LoadingScreen : MonoBehaviour
 
     public void Show()
     {
-        StartCoroutine(ShowInSeconds(3f));
+        StartCoroutine(ShowInSeconds(1.5f));
         StartCoroutine(UpdateText());
     }
 
@@ -28,7 +28,7 @@ public class LoadingScreen : MonoBehaviour
         for(int i = 0; i <= this.originalText.Length; i++)
         {
             this.text.text = this.originalText.Substring(0, i) + "...";
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             if (this.display.activeInHierarchy == false)
                 break;
         }
