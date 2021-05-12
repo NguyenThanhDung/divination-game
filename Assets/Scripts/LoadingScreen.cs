@@ -29,7 +29,7 @@ public class LoadingScreen : MonoBehaviour
         {
             this.text.text = this.originalText.Substring(0, i) + "...";
             yield return new WaitForSeconds(0.1f);
-            if (this.display.active == false)
+            if (this.display.activeInHierarchy == false)
                 break;
         }
     }
